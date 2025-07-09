@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de MRUV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Simulador de Movimiento Rectilíneo Uniformemente Variado (MRUV)</h1>
+
+        <div class="form-group">
+            <label for="velocity">Velocidad inicial (m/s):</label>
+            <input type="number" id="velocity" step="0.1" value="5">
+        </div>
+
+        <div class="form-group">
+            <label for="acceleration">Aceleración (m/s²) <strong>o</strong> Distancia (m):</label>
+            <input type="number" id="acceleration" step="0.1" placeholder="Aceleración opcional">
+            <input type="number" id="distanceInput" step="0.1" placeholder="Distancia opcional">
+        </div>
+
+        <div class="form-group">
+            <label for="time">Tiempo de simulación (s):</label>
+            <input type="number" id="time" step="1" value="10">
+        </div>
+
+        <button id="calculateBtn">Calcular y Simular</button>
+
+        <div class="results" id="results" style="display: none;">
+            <h3>Resultados</h3>
+            <p id="finalResults"></p>
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Tiempo (s)</th>
+                        <th>Velocidad (m/s)</th>
+                        <th>Distancia (m)</th>
+                        <th>Aceleración (m/s²)</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="simulation-area">
+            <div class="track-container" id="trackContainer">
+                <div class="rail"></div>
+                <div class="track"></div>
+                <div class="car" id="car">
+                    <div class="car-window"></div>
+                    <div class="car-window"></div>
+                    <div class="wheel wheel-front"></div>
+                    <div class="wheel wheel-back"></div>
+                </div>
+                <div class="time-indicator" id="timeIndicator">Tiempo: 0s</div>
+                <div class="speed-indicator" id="speedIndicator">Velocidad: 0 m/s</div>
+            </div>
+        </div>
+
+        <div class="graph-container" id="graphContainer">
+            <div class="axis x-axis"></div>
+            <div class="axis y-axis"></div>
+            <div class="axis-label x-label">Tiempo (s)</div>
+            <div class="axis-label y-label">Distancia (m)</div>
+        </div>
+        <div class="graph-container" id="accelerationGraphContainer">
+    <div class="axis x-axis"></div>
+    <div class="axis y-axis"></div>
+    <div class="axis-label x-label">Tiempo (s)</div>
+    <div class="axis-label y-label">Aceleración (m/s²)</div>
+</div>
+
+    </div>
+    <script src="miJS.js"></script>
+</body>
+</html>
